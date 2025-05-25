@@ -1,0 +1,3 @@
+without docker it will work
+normal fe and be project 
+take inputs and store in mongodb
