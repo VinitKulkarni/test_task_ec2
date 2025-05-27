@@ -1,4 +1,5 @@
 in frontend
+if dont have package.json and package.json.lock file (run this npm init)
 you have already package.json and lock files
 now do
 npm install express
@@ -19,5 +20,5 @@ sudo apt install python3-venv python3-pip
 pip3 --version (it should show)
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requriementst.txt
+pip install -r requirements.txt
 python3 app.py
