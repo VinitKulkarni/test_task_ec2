@@ -1,5 +1,5 @@
 in frontend
-if dont have package.json and package.json.lock file (run this npm init)
+if dont have package.json and package.json.lock file (run this npm init -y)
 you have already package.json and lock files
 now do
 npm install express
