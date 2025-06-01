@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
 
 load_dotenv()
-MONGO_URI = os.getenv('MONGO_URI=mongodb+srv://vinitkulkarni39:vinitkulkarni39@cluster0.qhjbnkt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+MONGO_URI = os.getenv('mongodb+srv://vinitkulkarni39:vinitkulkarni39@cluster0.qhjbnkt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
 client = pymongo.MongoClient(MONGO_URI)
 db = client.usersDB
