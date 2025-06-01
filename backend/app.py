@@ -7,10 +7,11 @@ import pymongo
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
 
-load_dotenv()
-MONGO_URI = os.getenv('MONGO_URI')
+mongo_uri = os.environ.get("MONGO_URI")
+if not mongo_uri:
+    raise ValueError("MONGO_URI environment variable not set")
 
-client = pymongo.MongoClient(MONGO_URI)
+client = pymongo.MongoClient(mongo_uri)
 db = client.usersDB
 collection = db['users-collection']
 
