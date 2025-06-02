@@ -5,7 +5,7 @@ Size: 30GB volume
 ```
 
 ### Ports allowed in Security Group:
-sh ```
+``` sh
 3000  -> frontend
 5000  -> backend
 8080  -> jenkins
@@ -14,7 +14,7 @@ sh ```
 ```
 
 ### How to run the frontend:
-sh ```
+``` sh
 git clone https://github.com/VinitKulkarni/test_task_ec2.git
 cd test_task_ec2/frontend
 sudo apt install npm
@@ -24,7 +24,7 @@ Now frontend can be accessed on internet: http://publicIP:3000
 ```
 
 ### How to run the backend:
-sh ```
+``` sh
 cd test_task_ec2/backend
 create .env file and paste the MONGODB_URI
 sudo apt update
@@ -38,7 +38,7 @@ Now backend is connected with frontend to store data in mongodb
 ```
 
 ### Install pm2 to run frontend and backend in background:
-sh ```
+``` sh
 sudo npm install pm2 -g  (Must install pm2 on globally)
 Goto frontend directory. where app.js file is present. Now start frontend:
 pm2 start app.js --name express-frontend
@@ -47,7 +47,7 @@ Goto backend directory. where app.py file is present. Now start backend:
 pm2 start app.py --name flask-backend
 ``` 
 ### Install Jenkins:
-sh ```
+``` sh
 sudo apt update
 sudo apt install openjdk-17-jre
 java -version
@@ -61,7 +61,7 @@ sudo apt-get install jenkins
 ```
 
 ### To access the jenkins:
-sh ```
+``` sh
 http://publicIP:8080
 
 To get the inital password:
