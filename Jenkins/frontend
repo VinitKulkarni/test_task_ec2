@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        
+        stage('Clone Repository') {
+            steps {
+                sh 'git clone https://github.com/VinitKulkarni/test_task_ec2'
+            }
+        }
+    
+        stage('Build and Start Frontend') {
+            steps {
+                sh '''
+                    cd /var/lib/jenkins/workspace/frontend/test_task_ec2/frontend
+                    npm install experss body-parser axios
+                    pm2 restart express-frontend
+                '''
+            }
+        }
+    }
+}
