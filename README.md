@@ -1,5 +1,5 @@
 ### Create a Ec2_instance:
-sh ```
+``` sh
 Type: t2.medium
 Size: 30GB volume
 ```
