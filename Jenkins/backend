@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    
+    environment {
+        MONGO_URI = credentials('mongo-uri-secret-id')
+    }
+    
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        
+        stage('Clone Repository') {
+            steps {
+                sh 'git clone https://github.com/VinitKulkarni/test_task_ec2'
+            }
+        }
+        
+        stage('Create .env') {
+            steps {
+                script {
+                    sh """
+                    echo "MONGO_URI=${MONGO_URI}" > /var/lib/jenkins/workspace/backend/test_task_ec2/backend/.env
+                    """
+                }
+            }
+        }
+
+        stage('Build and Start Backend') {
+            steps {
+                sh '''
+                        pm2 delete flask-backend
+                        cd /var/lib/jenkins/workspace/backend/test_task_ec2/backend
+                        python3 -m venv venv
+                        . venv/bin/activate
+                        pip install -r requirements.txt
+                        pm2 start app.py --name flask-backend --interpreter ./venv/bin/python
+                    '''
+            }
+        }
+    }
+}
